@@ -1,5 +1,7 @@
 <?php
 
+require_once("./functions.php");
+
 $trainerName = "Ash";
 $firstPokemon = "Pikachu";
 $lowerCasedFirstPokemon = strtolower($firstPokemon);
@@ -24,14 +26,12 @@ asort($pokemonLevels);
 
 $pokemonsByType = [
     "grass" => ['bulbasaur', 'mystherbe', 'chetiflor', 'germignon'],
-    "water" => ['Squirtle', 'Kaiminus', "Staross"],
+    "water" => ['squirtle', 'kaiminus', "staross"],
     "fire" => ['charmender'],
     "ground" => ['sabelette', 'taupiqueur']
 ];
 $pokemonsByType['fire'][] = 'caninos';
 $pokemonsByType['electrik'] = [$firstPokemon, "magneti", "voltorbe"];
-
-
 
 // echo "$firstPokemon I choose you!";
 
@@ -94,6 +94,16 @@ $message = "My name is $trainerName and I am from $hometown. My first pokemon is
         </ul>
         <?php echo count($pokemonsByType['water']) ?>
         <?php include("./arena.php") ?>
+        <section>
+            <h2>BASICS 3</h2>
+            <p>
+                <?php echo sayHello() ?>
+            </p>
+            <h3>Fight mode</h3>
+            <p>
+                <?php echo fight("bulbasaur", "charmender", $pokemonsByType) ?>
+            </p>
+        </section>
     </main>
     <?php include_once("./footer.php") ?>
 </body>
